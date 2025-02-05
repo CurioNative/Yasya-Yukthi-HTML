@@ -1,18 +1,37 @@
-    *{
+@font-face {
+    font-family: 'changuttan';
+    /* Name your font family */
+    src: url('assets/Changeling_Neo/Changeling\ Neo\ Regular.otf');
+    /* Locate the .ttf file within your directory*/
+}
+
+*{
     padding: 0;
     margin: 0%;
-    }
+    scroll-behavior: smooth;
+}
     
     body{
-        overflow: hidden;
+        overflow-x: hidden;
+        background-color: #0F1321;
+        font-family: 'changuttan';
+    text-transform: uppercase;
+    }
+    #page1{
+        position: relative;
         filter: blur(30px);
         transition: all 3s ease;
-        background-color: #0F1321;
+        overflow: hidden;
+        height: 100vh;
     }
-    
-    #sidebar{
+    #sidebar1{
         display: flex;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 100;
     }
+   
     
     li,a{
         text-decoration: none;
@@ -49,13 +68,21 @@
         top: 0%;
         left: 30%;
         transition: all 3s ease;
+        scale: 1.7;
+        z-index: -1;
     }
 
     #stistbigtitle{
         position: absolute;
         top: 0%;
-        left: 58%;
+        left: 17%;
+        scale: 1.2;
         transition: all 3s ease;
+    }
+    #edition{
+        position: absolute;
+        top: 30%;
+        right: 16%;
     }
 
     #Home:hover{
@@ -73,3 +100,211 @@
         transition: all 1s ease;
         font-size: 25px;
     }
+
+
+    /* page2 */
+    #page2{
+        position: relative;
+        background-image: url('assets/background.png');
+        background-repeat: no-repeat;
+        height: 210vh;
+        overflow: hidden;
+    }
+    #Intercollege2{
+        color: white;
+    }
+    #Intercollege2,#Home2,#Proshows2{
+        font-size: 15px;
+    }
+    
+    #Home2:hover,#Proshows2:hover{
+        color: white;
+        transition: all 1s ease;
+        font-size: 20px;
+    }
+    #sidebar2{
+        display: flex;
+        position: absolute;
+        left: 3%;
+        top: 25%;
+        scale: 1.7;
+    }
+    
+    /* card */
+    #intercontainer1{
+        position: absolute;
+        top: 35%;
+        left: 20%;
+    }
+    #intercontainer2{
+        position: absolute;
+        top: 35%;
+        left: 40%;
+    }
+    #intercontainer3{
+        position: absolute;
+        top: 35%;
+        left: 60%;
+    }
+    #intercontainer4{
+        position: absolute;
+        top: 35%;
+        left: 80%;
+    }
+    #intercontainer5{
+        position: absolute;
+        top: 55%;
+        left: 20%;
+    }
+    #intercontainer6{
+        position: absolute;
+        top: 55%;
+        left: 40%;
+    }
+    #intercontainer7{
+        position: absolute;
+        top: 55%;
+        left: 60%;
+    }
+    #intercontainer8{
+        position: absolute;
+        top: 55%;
+        left: 80%;
+    }
+    #intersub{
+        scale: 1;
+    }
+    #interback2{
+        position: absolute;
+        top: 8%;
+        left: 4%;
+        filter: saturate(0%);
+        scale: 1;
+        transition: all 1s ease;
+    }
+    #intercard{
+        width: 310px;
+        position: relative;
+    }
+    
+    #interrobot{
+        position: absolute;
+        top: 21%;
+        left: 6%;
+        width: 80%;
+        height: 70%;
+        transition: all 0.5s ease;
+        transform-origin: bottom; /* Set the transform origin to the top */
+        transform: scale(1); 
+        filter: saturate(200%);
+    }
+    
+    #intercard:hover #interrobot{
+        transform: scale(1.25,1.5);
+        opacity: 1;
+    }
+    
+    #intercard:hover #interback2{
+        filter: saturate(100%);
+    }
+    
+    h1{
+        color: rgb(255, 255, 255);
+        text-align: left;
+        width: 100%;
+        margin-left: 20%;
+        margin-top: 1%;
+        font-size: 30px;
+    }
+    /* page3 */
+    #page3{
+        position: relative;
+        background-image: url('assets/proshow.png');
+        background-repeat: no-repeat;
+        height: 265vh;
+        overflow: hidden;
+    }
+    #Proshows3{
+        color: white;
+    }
+    #Intercollege3,#Home3,#Proshows3{
+        font-size: 15px;
+    }
+    #Intercollege3:hover{
+        color: white;
+        transition: all 1s ease;
+    }
+    #Home3:hover{
+        color: white;
+        transition: all 1s ease;
+        font-size: 20px;
+    }
+    #sidebar3{
+        display: flex;
+        position: absolute;
+        left: 6%;
+        top: 30%;
+        scale: 2.3;
+    }
+    /* card section */
+
+#procontainer1{
+    position: absolute;
+    top: 30%;
+    left: 23%;
+}
+#procontainer2{
+    position: absolute;
+    top: 30%;
+    left: 63%;
+}
+#procontainer3{
+    position: absolute;
+    top: 60%;
+    left: 45%;
+}
+#prosub{
+    scale: 1.5;
+}
+#proback2{
+    position: absolute;
+    top: 8%;
+    left: 4%;
+    filter: saturate(0%);
+    scale: 1.5;
+    transition: all 1s ease;
+}
+#procard{
+    width: 310px;
+    position: relative;
+}
+
+#prorobot{
+    position: absolute;
+    top: 42%;
+    left: 5%;
+    width: 80%;
+    height: 70%;
+    transition: all 0.5s ease;
+    transform-origin: bottom; /* Set the transform origin to the top */
+    transform: scale(1.5); 
+    filter: saturate(200%);
+}
+
+#procard:hover #prorobot{
+    transform: scale(1.8,2.2);
+    opacity: 1;
+}
+
+#procard:hover #proback2{
+    filter: saturate(100%);
+}
+
+#protext{
+        color: rgb(255, 255, 255);
+        text-align: left;
+        width: 100%;
+        margin-left: 20%;
+        margin-top: 30%;
+        font-size: 30px;
+}

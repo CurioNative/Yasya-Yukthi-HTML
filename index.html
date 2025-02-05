@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="second.css">
     <link rel="stylesheet" href="third.css">
     <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="timer.css">
+    <link rel="stylesheet" href="cardcarousel.css">
+    <link rel="stylesheet" href="marquee.css">
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const whitebox = document.getElementById('whitebox');
@@ -34,6 +37,11 @@
             const yukthibutton = document.getElementById('yukthibutton');
             const yin = document.getElementById('yin');
             const yang = document.getElementById('yang');
+            const card1 = document.getElementById('card1');
+            const card2 = document.getElementById('card2');
+            const card3 = document.getElementById('card3');
+            const card4 = document.getElementById('card4');
+            const card5 = document.getElementById('card5');
 
             bluebox.addEventListener('mouseenter', function () {
                 robotimg.style.visibility = 'hidden';
@@ -102,7 +110,111 @@
                 yukthibutton.style.visibility = 'hidden';
                 yang.style.visibility = 'hidden';
             });
+
+            function animateCards() {
+                setTimeout(function () {
+                    card1.style.width = '30%';
+                }, 1000);
+                setTimeout(function () {
+                    card1.style.width = '8%';
+                    card2.style.width = '30%';
+                }, 4000);
+                setTimeout(function () {
+                    card2.style.width = '8%';
+                    card3.style.width = '30%';
+                }, 7000);
+                setTimeout(function () {
+                    card3.style.width = '8%';
+                    card4.style.width = '30%';
+                }, 10000);
+                setTimeout(function () {
+                    card4.style.width = '8%';
+                    card5.style.width = '30%';
+                }, 13000);
+                setTimeout(function () {
+                    card5.style.width = '8%';
+                    card1.style.width = '30%';
+                }, 16000);
+            }
+            setTimeout(function () {
+                animateCards();
+                setInterval(animateCards, 16000);
+            }, 1500);
         });
+
+        // ============================
+        // Configuration Variables
+        // ============================
+        const CONFIG = {
+            targetDate: '2025-03-05T00:00:00Z', // Target date for the timer
+            timerElementsClass: '.time',        // CSS class for timer display elements
+            timeUpMessage: "Time's up!",        // Message when the timer hits zero
+            leadingZeros: true                // Add leading zeros to time units
+        };
+
+        // ============================
+        // Helper Functions
+        // ============================
+
+        // Function to format time with or without leading zeros
+
+        function formatTime(value) {
+            return value.toString().padStart(2, '0');
+        }
+
+        function updateTime(timer, display) {
+            const SECONDS_IN_DAY = 86400;
+            const SECONDS_IN_HOUR = 3600;
+            const SECONDS_IN_MINUTE = 60;
+
+            const days = Math.floor(timer / SECONDS_IN_DAY);
+            const hours = Math.floor((timer % SECONDS_IN_DAY) / SECONDS_IN_HOUR);
+            const minutes = Math.floor((timer % SECONDS_IN_HOUR) / SECONDS_IN_MINUTE);
+            const seconds = Math.floor(timer % SECONDS_IN_MINUTE);
+
+            // Build the time string
+            const timeString = `${formatTime(days)}d ${formatTime(hours)}h ${formatTime(minutes)}m ${formatTime(seconds)}s`;
+
+            // Update each display element
+            display.forEach(el => el.textContent = timeString);
+        }
+
+        // Function to start the countdown timer
+        function startTimer(duration, display) {
+            let timer = duration;
+
+            // Initial display
+            updateTime(timer, display);
+
+            const intervalID = setInterval(() => {
+                if (timer <= 0) {
+                    clearInterval(intervalID);
+                    display.forEach(el => el.textContent = CONFIG.timeUpMessage);
+                } else {
+                    timer--;
+                    updateTime(timer, display);
+                }
+            }, 1000);
+        }
+
+        // Function to calculate seconds until a target date
+        function getTimeUntilTarget(targetDate) {
+            const now = Date.now();
+            const target = new Date(targetDate).getTime();
+            return Math.max(Math.floor((target - now) / 1000), 0); // Ensure non-negative duration
+        }
+
+        // ============================
+        // Main Script
+        // ============================
+        window.onload = function () {
+            const displayElements = document.querySelectorAll(CONFIG.timerElementsClass);
+            if (displayElements.length > 0) {
+                const duration = getTimeUntilTarget(CONFIG.targetDate);
+                startTimer(duration, displayElements);
+            }
+        };
+
     </script>
 </head>
 
@@ -147,214 +259,148 @@
         </div>
         <img src="assets\main image.png" alt="blue" id="bluewhite">
     </div>
+    <!-- timer -->
+    <div id="timercontainer">
+
+        <div class="time">Time</div>
+
+    </div>
+    <!-- card carousel page -->
+
+    <div id="cardcarousel">
+        <div id="card1">H <br>a <br>c <br>k <br>a <br>t <br>h <br>o <br>n</div>
+        <div id="card2">T <br>a <br>l <br>k <br>s</div>
+        <div id="card3">G <br>a <br>m <br>e <br>s</div>
+        <div id="card4">W <br>o <br>r <br>k <br>s <br>h <br>o <br>p <br>s</div>
+        <div id="card5">P <br>r <br>o <br>s <br>h <br>o <br>w <br>s</div>
+    </div>
+
+
+    <!-- Sponsers Page Start -->
+
     <div id="secondpage">
         <!-- <h1 id="sponserh1">OUR SPONSORS</h1> -->
 
-        <div class="sponsors-section fade-in">
-            <h2 class="sponsors-title slide-in" style="-webkit-text-stroke: black 2px;">PREVIOUS
-                SPONSORS</h2>
-            <div class="sponsors-grid">
-                <!-- Title Partner -->
-                <div class="sponsor-box title-partner fade-in-up">
-                    <p class="partner-label">TITLE PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
+        <h1 class="gallery-title" style="-webkit-text-stroke: black 2px;">Previous Sponsers</h1>
 
-                <!-- Regular Partners -->
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
-                <div class="sponsor-box fade-in-up">
-                    <p class="partner-label">PARTNER</p>
-                    <div class="logo-placeholder">LOGO</div>
-                </div>
+        <div class="tsc">
+            <div class="ts">
+                <img src="https://picsum.photos/400/300" alt="Gallery image 1">
             </div>
         </div>
 
-
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://picsum.photos/400/300" alt="Gallery image 1">
+                <!-- <div class="image-caption">Beautiful Landscape</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/401/300" alt="Gallery image 2">
+                <!-- <div class="image-caption">Mountain View</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/402/300" alt="Gallery image 3">
+                <!-- <div class="image-caption">Sunset Beach</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/403/300" alt="Gallery image 4">
+                <!-- <div class="image-caption">Forest Path</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/404/300" alt="Gallery image 5">
+                <!-- <div class="image-caption">City Lights</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/405/300" alt="Gallery image 6">
+                <!-- <div class="image-caption">Winter Wonderland</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/400/300" alt="Gallery image 1">
+                <!-- <div class="image-caption">Beautiful Landscape</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/401/300" alt="Gallery image 2">
+                <!-- <div class="image-caption">Mountain View</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/402/300" alt="Gallery image 3">
+                <!-- <div class="image-caption">Sunset Beach</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/403/300" alt="Gallery image 4">
+                <!-- <div class="image-caption">Forest Path</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/404/300" alt="Gallery image 5">
+                <!-- <div class="image-caption">City Lights</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/405/300" alt="Gallery image 6">
+                <!-- <div class="image-caption">Winter Wonderland</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/400/300" alt="Gallery image 1">
+                <!-- <div class="image-caption">Beautiful Landscape</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/401/300" alt="Gallery image 2">
+                <!-- <div class="image-caption">Mountain View</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/402/300" alt="Gallery image 3">
+                <!-- <div class="image-caption">Sunset Beach</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/403/300" alt="Gallery image 4">
+                <!-- <div class="image-caption">Forest Path</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/404/300" alt="Gallery image 5">
+                <!-- <div class="image-caption">City Lights</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/405/300" alt="Gallery image 6">
+                <!-- <div class="image-caption">Winter Wonderland</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/400/300" alt="Gallery image 1">
+                <!-- <div class="image-caption">Beautiful Landscape</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/401/300" alt="Gallery image 2">
+                <!-- <div class="image-caption">Mountain View</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/402/300" alt="Gallery image 3">
+                <!-- <div class="image-caption">Sunset Beach</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/403/300" alt="Gallery image 4">
+                <!-- <div class="image-caption">Forest Path</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/404/300" alt="Gallery image 5">
+                <!-- <div class="image-caption">City Lights</div> -->
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/405/300" alt="Gallery image 6">
+                <!-- <div class="image-caption">Winter Wonderland</div> -->
+            </div>
+        </div>
     </div>
 
-    <div id="thirdpage">
-        <h1 id="teamh1">OUR TEAM</h1>
-        <div id="carousel">
-            <div class="carousel__track">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-            </div>
-            <div class="carousel__track">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-            </div>
-            <div class="carousel__track">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-            </div>
-            <div class="carousel__track">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-            </div>
-            <div class="carousel__track">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-            </div>
-            <div class="carousel__track">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-            </div>
-            <div class="carousel__track">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-            </div>
-            <div class="carousel__track">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-                <img src="assets/teamc.png" alt="team carousel image">
-            </div>
+    <!-- Sponsers Page End -->
 
+
+    <div id="thirdpage">
+        <div id="marcontainer">
+            <h1>TEAM</h1>
+            <h1>TEAM</h1>
+            <h1>TEAM</h1>
+            <h1>TEAM</h1>
+            <h1>TEAM</h1>
         </div>
+        <h1 id="teamh1">OUR TEAM</h1>
         <!-- YASYA STAFF COORDINATORS -->
         <div id="yasyastaff" class="titlehead">
             <h1>YASYA STAFF COORDINATORS</h1>

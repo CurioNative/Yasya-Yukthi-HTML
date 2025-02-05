@@ -5,7 +5,6 @@
     height: auto;
     background-color: #0F1321;
     color: white;
-    margin-top: -10%;
 }
 
 #teamh1 {
@@ -65,60 +64,10 @@
 
 
 .card:hover {
-    box-shadow: 0 0 50px white, 0 0 100px #9747FF;
+    box-shadow: 0 0 50px white,0 0 100px #9747FF;
 }
 
 .container {
     padding: 20px;
     text-align: center;
-}
-
-/* #carousel {
-    animation: scroll 20s linear infinite;
-    padding-left: 100%;
-    display: inline-block;
-
-}
-
-@keyframes scroll {
-    100% {
-        transform: translate(-100%, 0);
-    }
-
-    0% {
-        transform: translate(100%, 0);
-    }
-} */
-
-#carousel {
-    display: flex;
-    overflow: hidden;
-    white-space: nowrap;
-    gap: 20px;
-    /* Remove unnecessary gap */
-    position: relative;
-}
-
-.carousel__track {
-    display: flex;
-    animation: marquee 10s linear infinite;
-    min-width: 100%;
-}
-
-.carousel__track img {
-    width: auto;
-    /* Adjust width accordingly */
-    height: 100px;
-    margin-right: 45px;
-    /* Adjust height accordingly */
-}
-
-@keyframes marquee {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-100%);
-    }
 }

@@ -1,0 +1,62 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+#cardcarousel{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0F1321;
+}
+#card1,#card2,#card3,#card4,#card5{
+    width: 8%;
+    height: 70%;
+    display: flex;
+    justify-content: right;
+    align-items:end;
+    border-radius: 10px;
+    font-size: 30px;
+    transition: width 2s ease;
+    margin-left: 10px;
+    color: white;
+    box-shadow: 1px 1px 5px grey;
+}
+
+
+#card1{
+    background-image: url('assets/hackathonbackgroundcard.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 20%;
+}
+#card2{
+    background-image: url('assets/talkscardcarousel.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 20%;
+}
+
+#card3{
+    background-image: url('assets/gamecardcarousel.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 20%;
+}
+
+#card4{
+    background-image: url('assets/workshopcardcarousel.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 20%;
+}
+
+#card5{
+    background-image: url('assets/proshowcardcarousel.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 20%;
+}

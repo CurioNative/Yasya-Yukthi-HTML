@@ -28,6 +28,7 @@ body {
     display: flex;
     position: relative;
     height: 100vh;
+    overflow: hidden;
 }
 
 #bluewhite {

@@ -14,14 +14,15 @@
 body{
     font-family: 'changuttan';
     text-transform: uppercase;
-        overflow-x: hidden;
-        filter: blur(30px);
-        transition: all 3s ease;
+    overflow-x: hidden;
+        
 
 }
 #page1{
     position: relative;
+    filter: blur(30px);
     overflow: hidden;
+    transition: all 3s ease;
 }
     
 #centerpiece{
@@ -75,6 +76,7 @@ li,a{
         top: 60%;
         height: 40%;
         transition: all 3s ease;
+        filter: saturate(200%);
 }
     
 #yukthibigtitle{
@@ -195,6 +197,7 @@ li,a{
     transition: all 0.5s ease;
     transform-origin: bottom; /* Set the transform origin to the top */
     transform: scale(1.5); 
+    filter: saturate(200%);
 }
 
 #hackcard:hover #hackrobot{
@@ -235,6 +238,92 @@ h1{
     transform: translate(0,43%);
 }
 
+/* card section */
+#compcenter{
+    position: relative;
+    height: 100vh;
+}
+#compcontainer1{
+    position: absolute;
+    top: 50%;
+    left: 15%;
+}
+#compcontainer2{
+    position: absolute;
+    top: 50%;
+    left: 35%;
+}
+#compcontainer3{
+    position: absolute;
+    top: 50%;
+    left: 55%;
+}
+#compcontainer4{
+    position: absolute;
+    top: 50%;
+    left: 75%;
+}
+#compcontainer5{
+    position: absolute;
+    top: 100%;
+    left: 25%;
+}
+#compcontainer6{
+    position: absolute;
+    top: 100%;
+    left: 45%;
+}
+#compcontainer7{
+    position: absolute;
+    top: 100%;
+    left: 65%;
+}
+#compsub{
+    filter: invert(1);
+}
+#compback2{
+    position: absolute;
+    top: 8%;
+    left: 4%;
+    filter: saturate(0%);
+    transition: all 0.5s ease;
+}
+#compcard{
+    width: 310px;
+    position: relative;
+}
+
+#comprobot{
+    position: absolute;
+    top: 21.2%;
+    left: 5%;
+    width: 80%;
+    height: 70%;
+    transition: all 0.5s ease;
+    transform-origin: bottom; /* Set the transform origin to the top */
+    transform: scale(0.9); 
+    filter: saturate(200%);
+}
+
+#compcard:hover #comprobot{
+    transform: scale(1.2,1.4);
+    opacity: 1;
+}
+
+#compcard:hover #compback2{
+    filter: saturate(100%);
+}
+
+h1{
+    color: rgb(0, 0, 0);
+    text-align: left;
+    width: 100%;
+    margin-left: -5%;
+    margin-top: 1%;
+    font-size: 30px;
+    text-align: center;
+}
+
 /* page4 */
 #page4{
     position: relative;
@@ -255,4 +344,94 @@ h1{
 #list4{
     height: auto;
     transform: translate(0,43%);
+}
+/* card section */
+#workcenter{
+    position: relative;
+    height: 100vh;
+}
+#workcontainer1{
+    position: absolute;
+    top: 20%;
+    left: 15%;
+}
+#workcontainer2{
+    position: absolute;
+    top: 20%;
+    left: 35%;
+}
+#workcontainer3{
+    position: absolute;
+    top: 20%;
+    left: 55%;
+}
+#workcontainer4{
+    position: absolute;
+    top: 20%;
+    left: 75%;
+}
+#workcontainer5{
+    position: absolute;
+    top: 60%;
+    left: 15%;
+}
+#workcontainer6{
+    position: absolute;
+    top: 60%;
+    left: 35%;
+}
+#workcontainer7{
+    position: absolute;
+    top: 60%;
+    left: 55%;
+}
+#workcontainer8{
+    position: absolute;
+    top: 60%;
+    left: 75%;
+}
+#worksub{
+    filter: invert(1);
+}
+#workback2{
+    position: absolute;
+    top: 8%;
+    left: 4%;
+    filter: saturate(0%);
+    transition: all 0.5s ease;
+}
+#workcard{
+    width: 310px;
+    position: relative;
+}
+
+#workrobot{
+    position: absolute;
+    top: 21.2%;
+    left: 5%;
+    width: 80%;
+    height: 70%;
+    transition: all 0.5s ease;
+    transform-origin: bottom; /* Set the transform origin to the top */
+    transform: scale(0.9); 
+    filter: saturate(200%);
+}
+
+#workcard:hover #workrobot{
+    transform: scale(1.2,1.4);
+    opacity: 1;
+}
+
+#workcard:hover #workback2{
+    filter: saturate(100%);
+}
+
+h1{
+    color: rgb(0, 0, 0);
+    text-align: left;
+    width: 100%;
+    margin-left: -5%;
+    margin-top: 1%;
+    font-size: 30px;
+    text-align: center;
 }

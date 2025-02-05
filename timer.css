@@ -1,0 +1,30 @@
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+#timercontainer {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    z-index: 10;
+    background-image: url(assets/timercard.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.time {
+    position: absolute;
+    background: linear-gradient(to right, #2b0368, #7d4bab);
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 0.25px whitesmoke;
+    background-clip: text;
+    color: transparent;
+    font-size: clamp(5.5rem, -0.107rem + 4.286vw, 3.75rem);
+    text-transform: uppercase;
+    z-index: 10;
+}
