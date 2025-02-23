@@ -1,25 +1,28 @@
-.frame {
-  position: relative;
-  width: 1966px;
-  height: 309px;
-  background-color: white;
-}
+.footer {
 
-.frame .overlap-group {
-  position: absolute;
-  width: 1917px;
-  height: 286px;
-  top: 0;
-  left: 30px;
+  padding: 40px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: white;
   background-image: url(./assets/rectangle-40501.svg);
-  background-size: 100% 100%;
 }
 
 .footer-header {
   align-items: center;
   align-content: center;
-  padding-left: 5em;
-  padding-top: 3.5em;
+  margin-top: 1%;
+  /* padding-left: 5em;
+  padding-top: 0; */
+}
+
+.footer-x {
+  margin-left: 45%;
+  margin-top: 5%;
+}
+
+.footer-yy {
+  margin-bottom: -10%;
 }
 
 .footer-header img {
@@ -27,57 +30,83 @@
   transition: filter 0.3s ease;
 }
 
-.footer-yk {
-  margin-bottom: 2em;
+.brand-section {
+  flex: 0 0 30%;
 }
 
-.footer-x {
-  margin-bottom: 2em;
-  margin-left: 10%;
+.brand-logo {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.2;
 }
 
-.frame {
-  height: 286px;
+.brand-separator {
+  font-size: 20px;
+  color: #666;
+  margin: 5px 0;
 }
 
-ul li {
-  list-style-type: none;
-}
-
-li{
-  padding-top:10px ;
-}
-
-.link1 {
-  text-decoration: none;
-  color: white;
-  font-size: 16px;
-  margin: 1%;
-  padding-left: 10%;
-  ;
-}
-
-.group {
+.links-section {
   display: flex;
-  position: absolute;
-  margin-left: 35%;
-  margin-top: -12%;
-  width: calc(100vw - 10vw);
+  justify-content: space-between;
+  flex: 0 0 40%;
 }
 
-.fthead {
-  color: white;
-  font-size: 30.19px;
+.links-column {
+  margin-right: 40px;
+  margin-left: 25px;
 }
 
-.ftcontent {
-  margin-left: 30px;
-  justify-content: center;
+.links-column h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.links-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.links-column ul li {
+  margin-bottom: 12px;
+
+}
+
+.links-column ul li a {
+  color: #999;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.social-section {
+  flex: 0 0 20%;
+}
+
+.social-section h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social-link {
+  display: flex;
   align-items: center;
+  color: #999;
+  text-decoration: none;
+  font-size: 14px;
+  margin-top: 10px;
 }
 
-.ftcontentl {
-  /* padding-left: 10%;   */
-  justify-content: center;
-  align-items: center;
+.social-link img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 }

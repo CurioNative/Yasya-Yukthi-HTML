@@ -28,17 +28,21 @@ body{
 #centerpiece{
         height: 100vh;
 }
-#sidebar1{
-        display: flex;
-        position: absolute;
-        left: 0;
-        top: 0;
-        z-index: 100;
+#sidebar {
+    position: fixed; /* Keeps it in place while scrolling */
+    left: 0; /* Aligns it to the left */
+    top: 50%; /* Centers it vertically */
+    transform: translateY(-50%); /* Ensures perfect centering */
+    width: 150px; /* Adjust based on design */
+    background: transparent; /* Keep background if necessary */
+    z-index: 1000; /* Keeps it above other content */
+    padding: 10px;
 }
-#sidebarimg1{
+
+/* #sidebarimg1{
         scale: 1;
-}
-#sidebarimg2{
+} */
+/* #sidebarimg2{
         scale: 0.9;
 }
 #sidebarimg3{
@@ -46,7 +50,7 @@ body{
 }
 #sidebarimg4{
     scale: 0.95;
-}
+} */
     
 li,a{
         text-decoration: none;
@@ -102,7 +106,7 @@ li,a{
 #Home2:hover, #Hackathon2:hover, #Workshops2:hover, #Competitions2:hover,
 #Home3:hover, #Hackathon3:hover, #Workshops3:hover, #Competitions3:hover,
 #Home4:hover, #Hackathon4:hover, #Workshops4:hover, #Competitions4:hover,
-#Hackathon2, #Competitions3, #Workshops4 {
+#Hackathon2, #Workshops4 {
     font-size: 25px;
     color: black;
     transition: all 1s ease;
@@ -113,7 +117,7 @@ li,a{
     overflow: hidden;
     background-image: url('assets/Hacakthon.png');
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     height: 109vh;
 }
 #sidebar2{
@@ -130,7 +134,7 @@ li,a{
 #hacktitle{
     position: absolute;
     top: 30%;
-    left: 15%;
+    right: 35%;
     width: 50%;
 }
 
@@ -178,9 +182,9 @@ li,a{
 #hackback2{
     position: absolute;
     top: 8%;
-    left: 4%;
+    right: 4%;
     filter: saturate(0%);
-    scale: 1.5;
+    scale: 0.95;
     transition: all 1s ease;
 }
 #hackcard{
@@ -223,8 +227,8 @@ h1{
     overflow: hidden;
     background-image: url('assets/Competitions.png');
     background-repeat: no-repeat;
-    background-size: contain;
-    height: 180vh;
+    background-size: cover;
+    height: 150vh;
 }
 #sidebar3{
     display: flex;
@@ -234,8 +238,14 @@ h1{
     z-index: 100;
 }
 #list3{
-    height: auto;
-    transform: translate(0,43%);
+    position: fixed; /* Keeps it in place while scrolling */
+    left: 20px; /* Aligns it to the left */
+    top: 50%; /* Centers it vertically */
+    transform: translateY(-50%); /* Ensures perfect centering */
+    width: 150px; /* Adjust based on design */
+    background: transparent; /* Keep background if necessary */
+    z-index: 1000; /* Keeps it above other content */
+    padding: 10px;
 }
 
 /* card section */
@@ -330,8 +340,9 @@ h1{
     overflow: hidden;
     background-image: url('assets/Workshops.png');
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     height: 108vh;
+    
 }
 
 #sidebar4{

@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="timer.css">
     <link rel="stylesheet" href="cardcarousel.css">
     <link rel="stylesheet" href="marquee.css">
+    <link rel="stylesheet" href="mobile.css">
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const whitebox = document.getElementById('whitebox');
@@ -111,38 +113,40 @@
                 yang.style.visibility = 'hidden';
             });
 
-            function animateCards(){
+            function animateCards() {
                 setTimeout(function () {
-                card1.style.width = '30%';
-            }, 1000);
-            setTimeout(function () {
-                card1.style.width = '8%';
-                card2.style.width = '30%';
-            }, 4000);
-            setTimeout(function () {
-                card2.style.width = '8%';
-                card3.style.width = '30%';
-            }, 7000);
-            setTimeout(function () {
-                card3.style.width = '8%';
-                card4.style.width = '30%';
-            }, 10000);
-            setTimeout(function () {
-                card4.style.width = '8%';
-                card5.style.width = '30%';
-            }, 13000);
-            setTimeout(function () {
-                card5.style.width = '8%';
-                card1.style.width = '30%';
-            }, 16000);
+                    card1.style.width = '30%';
+                }, 1000);
+                setTimeout(function () {
+                    card1.style.width = '8%';
+                    card2.style.width = '30%';
+                }, 4000);
+                setTimeout(function () {
+                    card2.style.width = '8%';
+                    card3.style.width = '30%';
+                }, 7000);
+                setTimeout(function () {
+                    card3.style.width = '8%';
+                    card4.style.width = '30%';
+                }, 10000);
+                setTimeout(function () {
+                    card4.style.width = '8%';
+                    card5.style.width = '30%';
+                }, 13000);
+                setTimeout(function () {
+                    card5.style.width = '8%';
+                    card1.style.width = '30%';
+                }, 16000);
             }
-        setTimeout(function() {
-            animateCards();
-            setInterval(animateCards, 16000);
-        },1500);
+            setTimeout(function () {
+                animateCards();
+                setInterval(animateCards, 16000);
+            }, 1500);
         });
 
-            // ============================
+
+
+        // ============================
         // Configuration Variables
         // ============================
         const CONFIG = {
@@ -151,41 +155,41 @@
             timeUpMessage: "Time's up!",        // Message when the timer hits zero
             leadingZeros: true                // Add leading zeros to time units
         };
-        
+
         // ============================
         // Helper Functions
         // ============================
-        
+
         // Function to format time with or without leading zeros
-        
-function formatTime(value) {
-    return value.toString().padStart(2, '0');
-}
 
-function updateTime(timer, display) {
-    const SECONDS_IN_DAY = 86400;
-    const SECONDS_IN_HOUR = 3600;
-    const SECONDS_IN_MINUTE = 60;
+        function formatTime(value) {
+            return value.toString().padStart(2, '0');
+        }
 
-    const days = Math.floor(timer / SECONDS_IN_DAY);
-    const hours = Math.floor((timer % SECONDS_IN_DAY) / SECONDS_IN_HOUR);
-    const minutes = Math.floor((timer % SECONDS_IN_HOUR) / SECONDS_IN_MINUTE);
-    const seconds = Math.floor(timer % SECONDS_IN_MINUTE);
+        function updateTime(timer, display) {
+            const SECONDS_IN_DAY = 86400;
+            const SECONDS_IN_HOUR = 3600;
+            const SECONDS_IN_MINUTE = 60;
 
-    // Build the time string
-    const timeString = `${formatTime(days)}d ${formatTime(hours)}h ${formatTime(minutes)}m ${formatTime(seconds)}s`;
+            const days = Math.floor(timer / SECONDS_IN_DAY);
+            const hours = Math.floor((timer % SECONDS_IN_DAY) / SECONDS_IN_HOUR);
+            const minutes = Math.floor((timer % SECONDS_IN_HOUR) / SECONDS_IN_MINUTE);
+            const seconds = Math.floor(timer % SECONDS_IN_MINUTE);
 
-    // Update each display element
-    display.forEach(el => el.textContent = timeString);
-}
+            // Build the time string
+            const timeString = `${formatTime(days)}d ${formatTime(hours)}h ${formatTime(minutes)}m ${formatTime(seconds)}s`;
+
+            // Update each display element
+            display.forEach(el => el.textContent = timeString);
+        }
 
         // Function to start the countdown timer
         function startTimer(duration, display) {
             let timer = duration;
-        
+
             // Initial display
             updateTime(timer, display);
-        
+
             const intervalID = setInterval(() => {
                 if (timer <= 0) {
                     clearInterval(intervalID);
@@ -196,14 +200,14 @@ function updateTime(timer, display) {
                 }
             }, 1000);
         }
-        
+
         // Function to calculate seconds until a target date
         function getTimeUntilTarget(targetDate) {
             const now = Date.now();
             const target = new Date(targetDate).getTime();
             return Math.max(Math.floor((target - now) / 1000), 0); // Ensure non-negative duration
         }
-        
+
         // ============================
         // Main Script
         // ============================
@@ -214,7 +218,7 @@ function updateTime(timer, display) {
                 startTimer(duration, displayElements);
             }
         };
-        
+
     </script>
 </head>
 
@@ -261,128 +265,138 @@ function updateTime(timer, display) {
     </div>
 
     <!-- timer -->
-     <div id="timercontainer">
-        
-            <div class="time">Time</div>
-            
-     </div>
-     <!-- card carousel page -->
-      
-      <div id="cardcarousel">
+    <div id="timercontainer">
+
+        <div class="time">Time</div>
+
+    </div>
+    <!-- card carousel page -->
+
+    <div id="cardcarousel">
+        <div class="curved-section"></div>
+
         <div id="card1">H <br>a <br>c <br>k <br>a <br>t <br>h <br>o <br>n</div>
         <div id="card2">T <br>a <br>l <br>k <br>s</div>
         <div id="card3">G <br>a <br>m <br>e <br>s</div>
         <div id="card4">W <br>o <br>r <br>k <br>s <br>h <br>o <br>p <br>s</div>
         <div id="card5">P <br>r <br>o <br>s <br>h <br>o <br>w <br>s</div>
-      </div>
+    </div>
+
+
+    <!-- Sponsers Page Start -->
 
     
-    <!-- Sponsers Page Start -->
     <div id="secondpage">
 
         <h1 class="gallery-title" style="-webkit-text-stroke: black 2px;">Previous Sponsers</h1>
 
         <div class="tsc">
             <div class="ts">
-                <img src="https://picsum.photos/400/300" alt="Gallery image 1">
+                <img src="assets\alghanim.png" alt="Gallery image 1">
             </div>
         </div>
+        <!-- <div class="tsc">
+            <div class="ts">
+                <img src="assets\alghanim.png" alt="Gallery image 1">
+            </div>
+        </div>   -->
         
+
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="https://picsum.photos/400/300" alt="Gallery image 1">
+                <img src="assets\levedu.png" alt="Gallery image 1">
                 <!-- <div class="image-caption">Beautiful Landscape</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/401/300" alt="Gallery image 2">
+                <img src="assets\acer.png" alt="Gallery image 2">
                 <!-- <div class="image-caption">Mountain View</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/402/300" alt="Gallery image 3">
+                <img src="assets\venkateswara.png" alt="Gallery image 3">
                 <!-- <div class="image-caption">Sunset Beach</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/403/300" alt="Gallery image 4">
+                <img src="assets/zamzam.png" alt="Gallery image 4">
                 <!-- <div class="image-caption">Forest Path</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/404/300" alt="Gallery image 5">
+                <img src="assets/milma.png" alt="Gallery image 5">
                 <!-- <div class="image-caption">City Lights</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/405/300" alt="Gallery image 6">
+                <img src="assets/riglabs.png" style="filter: invert();" alt="Gallery image 6">
                 <!-- <div class="image-caption">Winter Wonderland</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/400/300" alt="Gallery image 1">
+                <img src="assets/nexa.png.png" alt="Gallery image 1">
                 <!-- <div class="image-caption">Beautiful Landscape</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/401/300" alt="Gallery image 2">
+                <img src="assets/KSFE Logo.png" alt="Gallery image 2">
                 <!-- <div class="image-caption">Mountain View</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/402/300" alt="Gallery image 3">
+                <img src="assets/ktm.png" alt="Gallery image 3">
                 <!-- <div class="image-caption">Sunset Beach</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/403/300" alt="Gallery image 4">
+                <img src="assets/nychicken.png" alt="Gallery image 4">
                 <!-- <div class="image-caption">Forest Path</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/404/300" alt="Gallery image 5">
+                <img src="assets/helmetworld.png" alt="Gallery image 5">
                 <!-- <div class="image-caption">City Lights</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/405/300" alt="Gallery image 6">
+                <img src="assets/cokonet.png" alt="Gallery image 6">
                 <!-- <div class="image-caption">Winter Wonderland</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/400/300" alt="Gallery image 1">
+                <img src="assets/unibic.png" alt="Gallery image 1">
                 <!-- <div class="image-caption">Beautiful Landscape</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/401/300" alt="Gallery image 2">
+                <img src="assets/tryzens-logo-WHITE 2.png" alt="Gallery image 2">
                 <!-- <div class="image-caption">Mountain View</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/402/300" alt="Gallery image 3">
+                <img src="assets/scalgo.png" alt="Gallery image 3">
                 <!-- <div class="image-caption">Sunset Beach</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/403/300" alt="Gallery image 4">
+                <img src="assets/lottery.png" alt="Gallery image 4">
                 <!-- <div class="image-caption">Forest Path</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/404/300" alt="Gallery image 5">
+                <img src="assets/topias.png" alt="Gallery image 5">
                 <!-- <div class="image-caption">City Lights</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/405/300" alt="Gallery image 6">
+                <img src="assets/geebee.png" alt="Gallery image 6">
                 <!-- <div class="image-caption">Winter Wonderland</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/400/300" alt="Gallery image 1">
+                <img src="assets/datascienceacademy.png" alt="Gallery image 1">
                 <!-- <div class="image-caption">Beautiful Landscape</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/401/300" alt="Gallery image 2">
+                <img src="assets/uniark.png" alt="Gallery image 2">
                 <!-- <div class="image-caption">Mountain View</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/402/300" alt="Gallery image 3">
+                <img src="assets/caddesk.png" alt="Gallery image 3">
                 <!-- <div class="image-caption">Sunset Beach</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/403/300" alt="Gallery image 4">
+                <img src="assets/futurecad.png" alt="Gallery image 4">
                 <!-- <div class="image-caption">Forest Path</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/404/300" alt="Gallery image 5">
+                <img src="assets/m2.png" alt="Gallery image 5">
                 <!-- <div class="image-caption">City Lights</div> -->
             </div>
             <div class="gallery-item">
-                <img src="https://picsum.photos/405/300" alt="Gallery image 6">
+                <img src="assets/dnet.png" alt="Gallery image 6">
                 <!-- <div class="image-caption">Winter Wonderland</div> -->
             </div>
         </div>
@@ -399,51 +413,9 @@ function updateTime(timer, display) {
             <h1>TEAM</h1>
         </div>
         <h1 id="teamh1">OUR TEAM</h1>
-            <!-- YASYA STAFF COORDINATORS -->
-            <div id="yasyastaff" class="titlehead">
-                <h1>YASYA STAFF COORDINATORS</h1>
-                <div class="card-collection">
-                    <div class="card">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
-                        <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
-                            <p>Architect</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
-                        <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
-                            <p>Architect</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- YUKTHI STAFF COORDINATORS -->
-            <div id="yukthistaff" class="titlehead">
-                <h1>YUKTHI STAFF COORDINATORS</h1>
-                <div class="card-collection">
-                    <div class="card glow">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
-                        <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
-                            <p>Architect</p>
-                        </div>
-                    </div>
-                    <div class="card glow">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
-                        <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
-                            <p>Architect</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-        <!-- STUDENT COORDINATORS -->
-        <div class="studentcoordinators">
-            <h1 class="titlehead">STUDENT COORDINATORS</h1>
+        <!-- YASYA STAFF COORDINATORS -->
+        <div id="yasyastaff" class="titlehead">
+            <h1>YASYA STAFF COORDINATORS</h1>
             <div class="card-collection">
                 <div class="card">
                     <img src="path/to/image.jpg" alt="img" class="cardimg">
@@ -451,6 +423,48 @@ function updateTime(timer, display) {
                         <h4><b>Sumesh PP</b></h4>
                         <p>Architect</p>
                     </div>
+                </div>
+                <div class="card">
+                    <img src="assets/talkscardcarousel.jpeg" alt="img" class="cardimg">
+                    <div class="container">
+                        <h4><b>Sumesh PP</b></h4>
+                        <p>Architect</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- YUKTHI STAFF COORDINATORS -->
+        <div id="yukthistaff" class="titlehead">
+            <h1>YUKTHI STAFF COORDINATORS</h1>
+            <div class="card-collection">
+                <div class="card glow">
+                    <img src="path/to/image.jpg" alt="img" class="cardimg">
+                    <div class="container">
+                        <h4><b>Sumesh PP</b></h4>
+                        <p>Architect</p>
+                    </div>
+                </div>
+                <div class="card glow">
+                    <img src="path/to/image.jpg" alt="img" class="cardimg">
+                    <div class="container">
+                        <h4><b>Sumesh PP</b></h4>
+                        <p>Architect</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STUDENT COORDINATORS -->
+        <div class="studentcoordinators">
+            <h1 class="titlehead">STUDENT COORDINATORS</h1>
+            <div class="card-collection">
+                <div class="card">
+                    <img src="path/to/image.jpg" alt="img" class="cardimg">
+                    >
+                        <h4 class="card__text"><b>Sumesh PP</b></h4>
+                        <p class="card__text">Architect</p>
+                    
                 </div>
                 <div class="card">
                     <img src="path/to/image.jpg" alt="img" class="cardimg">
@@ -476,14 +490,14 @@ function updateTime(timer, display) {
             </div>
         </div>
         <div style="display: flex;justify-content: center;">
-        <div class="card">
+            <div class="card">
                 <img src="path/to/image.jpg" alt="img" class="cardimg">
                 <div class="container">
                     <h4><b>Sumesh PP</b></h4>
-                <p>Architect</p>
+                    <p>Architect</p>
+                </div>
             </div>
-        </div>
-        <div class="card">
+            <div class="card">
                 <img src="path/to/image.jpg" alt="img" class="cardimg">
                 <div class="container">
                     <h4><b>Sumesh PP</b></h4>
@@ -497,16 +511,16 @@ function updateTime(timer, display) {
                 <h1>DESIGN TEAM</h1>
                 <div class="card-collection">
                     <div class="card">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
+                        <img src="assets/img/Abikrishna S.JPG" alt="img" class="cardimg">
                         <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
+                            <h4><b>Abikrishna S</b></h4>
                             <p>Architect</p>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
+                        <img src="assets/img/Dev Nandan S.jpg" alt="img" class="cardimg">
                         <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
+                            <h4><b>Dev Nandan S</b></h4>
                             <p>Architect</p>
                         </div>
                     </div>
@@ -518,16 +532,16 @@ function updateTime(timer, display) {
                 <h1>MEDIA TEAM</h1>
                 <div class="card-collection">
                     <div class="card">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
+                        <img src="assets/img/Abhishek BK.jpeg" alt="img" class="cardimg">
                         <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
+                            <h4><b>Abhishek BK</b></h4>
                             <p>Architect</p>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
+                        <img src="assets/img/Fathima B.jpg" alt="img" class="cardimg">
                         <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
+                            <h4><b>Fathima B</b></h4>
                             <p>Architect</p>
                         </div>
                     </div>
@@ -540,17 +554,17 @@ function updateTime(timer, display) {
                 <h1>SPONSORSHIP TEAM</h1>
                 <div class="card-collection">
                     <div class="card">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
+                        <img src="assets/img/Darshan Kumar.jpg" alt="img" class="cardimg">
                         <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
-                            <p>Architect</p>
+                            <h4><b>Darshan Kumar</b></h4>
+                            <p>Male Lead</p>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
+                        <img src="assets/img/Aiswarya R V.jpg" alt="img" class="cardimg">
                         <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
-                            <p>Architect</p>
+                            <h4><b>Aiswarya R V</b></h4>
+                            <p>Female Lead</p>
                         </div>
                     </div>
                 </div>
@@ -561,17 +575,17 @@ function updateTime(timer, display) {
                 <h1>FINANCE TEAM</h1>
                 <div class="card-collection">
                     <div class="card">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
+                        <img src="assets/img/Nikhil AV (1).jpg" alt="img" class="cardimg">
                         <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
-                            <p>Architect</p>
+                            <h4><b>Nikhil AV</b></h4>
+                            <p>Male Lead</p>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
+                        <img src="assets/img/Devu A G.jpg" alt="img" class="cardimg">
                         <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
-                            <p>Architect</p>
+                            <h4><b>Devu A G</b></h4>
+                            <p>Female Lead</p>
                         </div>
                     </div>
                 </div>
@@ -583,17 +597,17 @@ function updateTime(timer, display) {
                 <h1>OPERATION TEAM</h1>
                 <div class="card-collection">
                     <div class="card">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
+                        <img src="assets/img/Nipesh S.JPG" alt="img" class="cardimg">
                         <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
-                            <p>Architect</p>
+                            <h4><b>Nipesh S</b></h4>
+                            <p>Male Lead</p>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
+                        <img src="assets/img/Gouri krishna .jpg" alt="img" class="cardimg">
                         <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
-                            <p>Architect</p>
+                            <h4><b>Gouri krishna</b></h4>
+                            <p>Female Lead</p>
                         </div>
                     </div>
                 </div>
@@ -604,10 +618,10 @@ function updateTime(timer, display) {
                 <h1>TECHNICAL TEAM</h1>
                 <div class="card-collection">
                     <div class="card">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
+                        <img src="assets/img/Aryan C.jpg" alt="img" class="cardimg">
                         <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
-                            <p>Architect</p>
+                            <h4><b>Aryan C</b></h4>
+                            <p>Male Lead</p>
                         </div>
                     </div>
                     <div class="card">
@@ -626,17 +640,17 @@ function updateTime(timer, display) {
                 <h1>YASYA PROGRAM <br>COORDINATORS</h1>
                 <div class="card-collection">
                     <div class="card">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
+                        <img src="assets/img/Shaikh Mohammed .jpg" alt="img" class="cardimg">
                         <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
-                            <p>Architect</p>
+                            <h4><b>Shaikh Mohammed</b></h4>
+                            <p>Male Lead</p>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
+                        <img src="assets/img/Gayathri Jalandhar.jpg" alt="img" class="cardimg">
                         <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
-                            <p>Architect</p>
+                            <h4><b>Gayathri Jalandhar</b></h4>
+                            <p>Female Lead</p>
                         </div>
                     </div>
                 </div>
@@ -669,17 +683,17 @@ function updateTime(timer, display) {
                 <h1>AMBIENCE TEAM</h1>
                 <div class="card-collection">
                     <div class="card">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
+                        <img src="assets/img/Image.jpg" alt="img" class="cardimg">
                         <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
-                            <p>Architect</p>
+                            <h4><b>Arun Krishna S</b></h4>
+                            <p>Male Lead</p>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
+                        <img src="assets/img/IMG_20250114_212537.jpg" alt="img" class="cardimg">
                         <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
-                            <p>Architect</p>
+                            <h4><b>Shahnaaz</b></h4>
+                            <p>Female Lead</p>
                         </div>
                     </div>
                 </div>
@@ -690,17 +704,17 @@ function updateTime(timer, display) {
                 <h1>DOCUMENTATION TEAM</h1>
                 <div class="card-collection">
                     <div class="card">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
+                        <img src="assets/img/Dravid R Krishna .jpg" alt="img" class="cardimg">
                         <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
-                            <p>Architect</p>
+                            <h4><b>Dravid R Krishna</b></h4>
+                            <p>Male Lead</p>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
+                        <img src="assets/img/IMG-20241101-WA0066.jpg" alt="img" class="cardimg">
                         <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
-                            <p>Architect</p>
+                            <h4><b>Emiya</b></h4>
+                            <p>Female Lead</p>
                         </div>
                     </div>
                 </div>
@@ -793,77 +807,83 @@ function updateTime(timer, display) {
             </div>
         </div>
 
-            <!-- PARTNER ENGAGEMENT -->
-            <div id="partnerengagement" class="titlehead">
-                <h1>PARTNER ENGAGEMENT</h1>
-                <div class="card-collection">
-                    <div class="card">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
-                        <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
-                            <p>Architect</p>
-                        </div>
+        <!-- PARTNER ENGAGEMENT -->
+        <div id="partnerengagement" class="titlehead">
+            <h1>PARTNER ENGAGEMENT</h1>
+            <div class="card-collection">
+                <div class="card">
+                    <img src="path/to/image.jpg" alt="img" class="cardimg">
+                    <div class="container">
+                        <h4><b>Sumesh PP</b></h4>
+                        <p>Architect</p>
                     </div>
-                    <div class="card">
-                        <img src="path/to/image.jpg" alt="img" class="cardimg">
-                        <div class="container">
-                            <h4><b>Sumesh PP</b></h4>
-                            <p>Architect</p>
-                        </div>
+                </div>
+                <div class="card">
+                    <img src="path/to/image.jpg" alt="img" class="cardimg">
+                    <div class="container">
+                        <h4><b>Sumesh PP</b></h4>
+                        <p>Architect</p>
                     </div>
                 </div>
             </div>
+        </div>
     </div>
     <!-- Footer Start -->
 
-    <footer class="frame">
+    <footer class="footer">
         <div class="footer-header">
             <img src="./assets/footer-yk.png" alt="Yukthi" class="footer-yk"> <br>
             <img src="./assets/footer-X.png" alt="X" class="footer-x"> <br>
             <img src="./assets//footer-yy.png" alt="yasya" class="footer-yy">
         </div>
-        <div class="overlap-group">
-            <img class="vector" src="./assets//vector-466.svg" alt="Decorative line" />
-            <img class="img" src="./assets/vector-467.svg" alt="Decorative line" />
-            <nav class="group">
-                <ul class="ftcontent">
-                    <li>
-                        <h1 class="fthead">Quick Link</h1>
-                    </li>
-                    <li><a href="#" class="link1">Lorem ipsum</a></li>
-                    <li><a href="#" class="link1">Lorem ipsum</a></li>
-                    <li><a href="#" class="link1">Lorem ipsum</a></li>
-                    <li><a href="#" class="link1">Lorem ipsum</a></li>
+
+        <div class="links-section">
+            <div class="links-column">
+                <h3>Quick Link</h3>
+                <ul>
+                    <li><a href="#">Lorem ipsum</a></li>
+                    <li><a href="#">Lorem ipsum</a></li>
+                    <li><a href="#">Lorem ipsum</a></li>
+                    <li><a href="#">Lorem ipsum</a></li>
                 </ul>
-                <ul class="ftcontent">
-                    <li>
-                        <h1 class="fthead">Products</h1>
-                    </li>
-                    <li><a href="#" class="link1">Lorem ipsum</a></li>
-                    <li><a href="#" class="link1">Lorem ipsum</a></li>
-                    <li><a href="#" class="link1">Lorem ipsum</a></li>
-                    <li><a href="#" class="link1">Lorem ipsum</a></li>
+            </div>
+
+            <div class="links-column">
+                <h3>Products</h3>
+                <ul>
+                    <li><a href="#">Lorem ipsum</a></li>
+                    <li><a href="#">Lorem ipsum</a></li>
+                    <li><a href="#">Lorem ipsum</a></li>
+                    <li><a href="#">Lorem ipsum</a></li>
                 </ul>
-                <ul class="ftcontent">
-                    <li>
-                        <h1 class="fthead">Support</h1>
-                    </li>
-                    <li><a href="#" class="link1">Lorem ipsum</a></li>
-                    <li><a href="#" class="link1">Lorem ipsum</a></li>
-                    <li><a href="#" class="link1">Lorem ipsum</a></li>
-                    <li><a href="#" class="link1">Lorem ipsum</a></li>
+            </div>
+
+            <div class="links-column">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Lorem ipsum</a></li>
+                    <li><a href="#">Lorem ipsum</a></li>
+                    <li><a href="#">Lorem ipsum</a></li>
+                    <li><a href="#">Lorem ipsum</a></li>
                 </ul>
-                <ul class="ftcontentl">
-                    <li>
-                        <h1 class="fthead">FOLLOW US ON !</h1>
-                    </li>
-                    <li><a href="#" class="link1"><img src="assets/ig.png" class="ig__logo">yasya.stist </a></li>
-                    <li><a href="#" class="link1"><img src="assets/ig.png" class="ig__logo">yukthi.stist </a></li>
-                </ul>
-            </nav>
-            <img class="vector-2" src="./assets/vector-468.svg" alt="Decorative line" />
+            </div>
+        </div>
+
+        <div class="social-section">
+            <h3>FOLLOW US ON!</h3>
+            <div class="social-links">
+                <a href="#" class="social-link">
+                    <img src="assets/ig.png" alt="Instagram">
+                    yasya.stist
+                </a>
+                <a href="#" class="social-link">
+                    <img src="assets/ig.png" alt="Instagram">
+                    yukthi_stist
+                </a>
+            </div>
         </div>
     </footer>
+
     <!-- Footer Ends -->
 
 </body>

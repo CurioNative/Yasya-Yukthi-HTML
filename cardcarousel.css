@@ -10,7 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #0F1321;
+    background-image: url('assets/1bg.png'); background-position: 58.6%;
 }
 #card1,#card2,#card3,#card4,#card5{
     width: 8%;

@@ -1,0 +1,134 @@
+/* Responsive Styles */
+
+@media (max-width: 1024px) {
+    .mainbody {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    #bluebox, #whitebox {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    #firsth1 {
+        font-size: 24px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        background-color: #001f3f !important;
+    }
+    
+    .mainbody {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    #firsth1 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+    
+    #bluebox, #whitebox {
+        width: 90%;
+        padding: 15px;
+        text-align: center;
+        margin: auto;
+    }
+    
+    #yasyatag, #yukthitag {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    
+    #yasyabutton, #yukthibutton {
+        width: 80%;
+        font-size: 16px;
+        padding: 10px;
+    }
+    
+    #cardcarousel {
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+        align-items: center;
+    }
+    
+    #card1, #card2, #card3, #card4, #card5 {
+        width: 90%;
+        height: auto;
+        font-size: 20px;
+        text-align: center;
+        margin: 10px 0;
+    }
+    
+    .gallery-item img {
+        height: auto;
+        width: 100%;
+    }
+    
+    .footer {
+        padding: 20px;
+    }
+    
+    .links-section {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background-color: #001f3f !important;
+    }
+    
+    #firsth1 {
+        font-size: 18px;
+    }
+    
+    #bluebox, #whitebox {
+        width: 100%;
+        padding: 10px;
+    }
+    
+    #yasyatag, #yukthitag {
+        font-size: 14px;
+        padding: 10px;
+    }
+    
+    #yasyabutton, #yukthibutton {
+        width: 90%;
+        font-size: 14px;
+        padding: 8px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    
+    .footer {
+        font-size: 12px;
+    }
+    
+    .footer img {
+        max-width: 80px;
+    }
+}

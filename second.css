@@ -1,55 +1,44 @@
-#secondpage {
+ #secondpage {
     position: relative;
     width: 100%;
     /* Changed height to min-height to allow content expansion */
+    /* 220vh if 24 sponsors and 120vh if 12 sponsors excluding title sponsor  */
     min-height: 220vh;
-    background-image: url(assets/2ndpage.png);
+    background-image: url(assets/2ndpage.png); padding: 11px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-}
-
-.sponsors-section {
-    position: relative;
-    width: 100%;
-    padding: 3% 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* Added min-height to ensure proper spacing */
-    min-height: auto;
-}
-
-.sponsors-title {
-    color: #FFFFFF;
-    font-family: 'Changeling Neo Bold', sans-serif;
-    text-transform: uppercase;
-    text-align: center;
-    margin: 0 auto;
-    padding: 2rem 0;
-    font-size: clamp(30px, 8vw, 80px);
+    /* Removed overflow: hidden to show all content */
 }
 
 .tsc {
     width: 100vw;
     margin: 2.5%;
     display: flex;
-    justify-content: center; /* Properly center content */
+    justify-content: center;
+    /* align-items: center; */
+    /* Properly center content */
+    translate: -5%;
+
 }
 
 .ts {
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
     transition: transform 0.3s ease;
     /* Removed problematic margin-left */
-    max-width: 62.5vw; /* More responsive width constraint */
-    margin: 0 auto; /* Center horizontally */
+    /* max-width: 62.5vw; */
+    width: 30%;
+    background-color: rgba(255, 255, 255, 0.486);
+    height: 350px;
+    /* More responsive width constraint */
+    margin: 0 auto;
+
+    /* Center horizontally */
 }
 
 .gallery-title {
-    color: #FFFFFF;
-    font-family: 'Changeling Neo Bold', sans-serif;
+    color: white;
     text-transform: uppercase;
     text-align: center;
     margin: 0 auto;
@@ -63,16 +52,18 @@
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px; /* Added padding for better spacing */
+    padding: 20px;
+    /* Added padding for better spacing */
     margin-bottom: 5%;
 }
 
 .gallery-item {
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
     transition: transform 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.486);
 }
 
 /* Fixed hover selector structure */
@@ -81,20 +72,23 @@
     transform: translateY(-5px);
 }
 
-.gallery-item img{
+
+.gallery-item img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: contain;
+    /* filter: drop-shadow(0 0 black); */
     display: block;
     transition: transform 0.3s ease;
 }
 
 .ts img {
     width: 100%;
-    height: 300px;
-    object-fit: cover;
+    height: 100%;
+    object-fit: contain;
     display: block;
     transition: transform 0.3s ease;
+
 }
 
 /* Fixed hover selector for images */
@@ -115,8 +109,9 @@
         gap: 15px;
         padding: 10px;
     }
-    
+
     .ts {
-        max-width: 90vw; /* Better mobile width */
+        max-width: 90vw;
+        /* Better mobile width */
     }
 }

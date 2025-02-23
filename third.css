@@ -42,8 +42,8 @@
     height: 270px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;
+    justify-content: center; */
     margin-right: 30px;
     margin-bottom: 35px;
     margin-top: 15px;
@@ -67,7 +67,12 @@
     box-shadow: 0 0 50px white,0 0 100px #9747FF;
 }
 
-.container {
+/* .container {
     padding: 20px;
     text-align: center;
+} */
+
+.container p,h4{
+    margin-right: 40%;
 }
+

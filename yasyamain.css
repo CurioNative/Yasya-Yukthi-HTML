@@ -24,12 +24,15 @@
         overflow: hidden;
         height: 100vh;
     }
-    #sidebar1{
-        display: flex;
-        position: absolute;
-        left: 0;
-        top: 0;
-        z-index: 100;
+    #sidebar{
+        position: fixed; /* Keeps it in place while scrolling */
+        left: 0; /* Aligns it to the left */
+        top: 50%; /* Centers it vertically */
+        transform: translateY(-50%); /* Ensures perfect centering */
+        width: 150px; /* Adjust based on design */
+        background: transparent; /* Keep background if necessary */
+        z-index: 1000; /* Keeps it above other content */
+        padding: 10px;
     }
    
     
@@ -44,6 +47,14 @@
     #list{
         height: auto;
         transform: translate(0%,45%);
+        position: fixed; /* Keeps it in place while scrolling */
+    left: 20px; /* Aligns it to the left */
+    top: 50%; /* Centers it vertically */
+    transform: translateY(-50%); /* Ensures perfect centering */
+    width: 150px; /* Adjust based on design */
+    background: transparent; /* Keep background if necessary */
+    z-index: 1000; /* Keeps it above other content */
+    padding: 10px;
     }
     
     #yasyalogo{
@@ -107,6 +118,7 @@
         position: relative;
         background-image: url('assets/background.png');
         background-repeat: no-repeat;
+        background-size: cover;
         height: 210vh;
         overflow: hidden;
     }
@@ -221,24 +233,26 @@
         position: relative;
         background-image: url('assets/proshow.png');
         background-repeat: no-repeat;
+        background-size: cover;
         height: 265vh;
         overflow: hidden;
     }
-    #Proshows3{
+    /* #Proshows3{
         color: white;
-    }
+    } */
     #Intercollege3,#Home3,#Proshows3{
         font-size: 15px;
     }
-    #Intercollege3:hover{
-        color: white;
-        transition: all 1s ease;
-    }
-    #Home3:hover{
+    #Intercollege3:hover,#Home3:hover,#Proshows3:hover{
         color: white;
         transition: all 1s ease;
         font-size: 20px;
     }
+    /* #Home3:hover{
+        color: white;
+        transition: all 1s ease;
+        font-size: 20px;
+    } */
     #sidebar3{
         display: flex;
         position: absolute;
