@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YASYA/YUKTHI</title>
+    <link rel="stylesheet" href="mobileindex.css">
+</head>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const yasya = document.getElementById('yasya');
+        const yukthi = document.getElementById('yukthi');
+        const yasya25 = document.getElementById('yasya25');
+        const yukthi25 = document.getElementById('yukthi25');
+        const woman = document.getElementById('woman');
+        const robot = document.getElementById('robot');
+        const yasyapara = document.getElementById('yasyapara');
+        const yukthipara = document.getElementById('yukthipara');
+
+        let womanlogo = true;
+        let robotlogo = true;
+
+        yasya.addEventListener('click',function(){
+        if(womanlogo){
+            woman.style.visibility = 'hidden';
+            yasya.style.height = '100vh';
+            yukthi.style.height = '0vh';
+            yasyapara.style.visibility = 'visible';
+        }
+        else{
+            woman.style.visibility = 'visible';
+            yasya.style.height = '50vh';
+            yukthi.style.height = '50vh';
+            yasyapara.style.visibility = 'hidden';
+           } 
+           womanlogo = !womanlogo;
+        });
+
+        yukthi.addEventListener('click',function(){
+            if(robotlogo){
+            robot.style.visibility = 'hidden';
+            yukthi.style.height = '100vh';
+            yasya.style.height = '0vh';
+            yukthipara.style.visibility = 'visible';
+        }
+        else{
+            robot.style.visibility = 'visible';
+            yukthi.style.height = '50vh';
+            yasya.style.height = '50vh';
+            yukthipara.style.visibility = 'hidden';
+           } 
+           robotlogo = !robotlogo;
+        });
+
+        setTimeout(function () {
+                yasya25.style.top = '20%';
+                yukthi25.style.top = '20%';
+                woman.style.opacity = '1';
+                robot.style.opacity = '1';
+            }, 2000);
+    });
+</script>
+<body>
+    <div class="mainbody">
+        <div id="yasya">
+            <img src="assets/yasya logo.png" alt="yasyalogo" id="yasyalogo">
+            <img src="assets/YASYA ‘25.png" alt="yasya25" id="yasya25">
+            <img src="assets/woman.png" alt="woman" id="woman">
+            <p id="yasyapara">St. Thomas Institute for Science and Technology proudly presents YUKTHI'25, the 2nd edition of its national-level tech fest. Building on the remarkable success of its inaugural event, YUKTHI has evolved into a prestigious platform that fosters innovation, collaboration, and the exchange of ideas among tech enthusiasts nationwide. With a vision to democratize education, this event champions free learning opportunities across various technology domains, breaking down financial barriers and empowering participants.</p>
+        </div>
+        <div id="yukthi">
+            <img src="assets/yukthi logo.png" alt="yukthilogo" id="yukthilogo">
+            <img src="assets/YUKTHI ‘25.png" alt="yukthi25" id="yukthi25">
+            <img src="assets/yukthi-robot.png" alt="robot" id="robot">
+            <p id="yukthipara">St. Thomas Institute for Science and Technology proudly presents YUKTHI'25, the 2nd edition of its national-level tech fest. Building on the remarkable success of its inaugural event, YUKTHI has evolved into a prestigious platform that fosters innovation, collaboration, and the exchange of ideas among tech enthusiasts nationwide. With a vision to democratize education, this event champions free learning opportunities across various technology domains, breaking down financial barriers and empowering participants.</p>
+        </div>
+    </div>
+</body>
+</html>

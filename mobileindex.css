@@ -1,0 +1,107 @@
+@font-face {
+    font-family: 'changuttan';
+    /* Name your font family */
+    src: url('assets/Changeling_Neo/Changeling\ Neo\ Light.otf');
+    /* Locate the .ttf file within your directory*/
+}
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'changuttan';
+}
+/* body */
+body{
+    background-color: rgba(0, 0, 0, 0.308);
+    
+}
+
+
+/* yasya */
+#yasya{
+    position: relative;
+    background-color: #101321;
+    width: 100vw;
+    height: 50vh;
+    overflow: hidden;
+    transition: height 1s;
+}
+#yasyalogo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    opacity: 0.1;
+}
+#yasya25{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    transition: all 1s;
+    
+}
+#woman{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    transition: opacity 1s;
+    opacity: 0;
+}
+#yasyapara{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    color: white;
+    visibility: hidden;
+}
+
+
+/* yukthi */
+#yukthi{
+    position: relative;
+    background-color: #FFFFFF;
+    width: 100vw;
+    height: 50vh;
+    overflow: hidden;
+    transition: height 1s;
+}
+#yukthilogo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+#yukthi25{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    transition: all 1s;
+   
+}
+#robot{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    transition: opacity 1s;
+    opacity: 0;
+}
+#yukthipara{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    color: black;
+    visibility: hidden;
+}
